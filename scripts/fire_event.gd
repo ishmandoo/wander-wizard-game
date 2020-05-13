@@ -1,7 +1,7 @@
 extends "res://scripts/Event.gd"
 
 var time
-onready var player_sprite = get_node("/root/Node2D/Player/Sprite")
+onready var player = get_node("/root/Node2D/Player")
 
 func root():
 	add_choice("Oh… stranger… why don’t you come and warm yourself by the fire?", ["[Sit]", "No thanks."], ["sit", "bad_ending"])
@@ -9,13 +9,12 @@ func root():
 func sit():
 	time = OS.get_ticks_msec()
 	$Sprite.animation = "player"
-	print(player_sprite)
-	player_sprite.hide()
+	player.disable()
 	add_choice("[You sit at the fire. It feels warm.]", ["[Stand up]", "[Continue sitting]"], ["consider_leaving", "sit"])
 	
 func consider_leaving():
 	$Sprite.animation = "default"
-	player_sprite.show()
+	player.enable()
 	if OS.get_ticks_msec() - time > 5000:
 		add_choice("It was nice to have some company.", ["Ok"],  ["conclude"])
 	else:
