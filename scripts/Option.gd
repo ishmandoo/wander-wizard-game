@@ -1,10 +1,9 @@
 extends "res://scripts/Text.gd"
 
-var id
 signal choice
 
-func _init(my_position, my_text, my_width, my_id).(my_position, my_text, my_width):
-	id = my_id
+func _init(my_position, my_text, my_width).(my_position, my_text, my_width):
+	pass
 	
 func _ready():
 	mouse_filter = MOUSE_FILTER_PASS
@@ -19,5 +18,4 @@ func _mouse_exited():
 	
 func _gui_input(event):
 	if event.is_pressed():
-		print(id)
 		emit_signal("choice")

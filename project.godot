@@ -19,6 +19,10 @@ config/name="Wizards"
 run/main_scene="res://scenes/Test.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/resizable=false
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

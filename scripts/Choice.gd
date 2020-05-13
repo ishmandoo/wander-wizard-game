@@ -1,8 +1,5 @@
 extends Node2D
 
-
-signal result(choice_id)
-
 var Text = preload("res://scripts/Text.gd")
 var Option = preload("res://scripts/Option.gd")
 
@@ -36,7 +33,7 @@ func add_text(data):
 	place_item(item)
 	
 func add_option(data, id):
-	var item = Option.new(next_position, data, width, id)
+	var item = Option.new(next_position, data, width)
 	item.connect("choice", parent, id)
 	place_item(item)
 	
